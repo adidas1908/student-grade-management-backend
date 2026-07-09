@@ -37,7 +37,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration configuration = new CorsConfiguration();
-
+System.out.println("====== CORS CONFIG LOADED ======");
 configuration.setAllowedOrigins(List.of(
     "http://localhost:5173",
     "https://student-grade-management-ui.vercel.app"
