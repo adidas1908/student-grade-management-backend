@@ -6,12 +6,6 @@ This project serves as the backend of the Student Grade Management System and fo
 
 ---
 
-## 🚀 Live Demo
-
-### Backend
-https://student-grade-management-backend-production.up.railway.app
-
-### Frontend
 https://student-grade-management-ui.vercel.app
 
 ---
