@@ -37,4 +37,31 @@ public class AuthServiceImpl implements AuthService {
 
         return new LoginResponse(token);
     }
+
+  @Override
+public LoginResponse demoLogin() {
+
+    try {
+
+        System.out.println("Demo Login Started");
+
+        User demoUser = userRepository.findByEmail("demo@gmail.com")
+                .orElseThrow(() -> new RuntimeException("Demo User Not Found"));
+
+        System.out.println("User Found : " + demoUser.getEmail());
+
+        String token = jwtService.generateToken(demoUser.getEmail());
+
+        System.out.println("Token Generated Successfully");
+
+        return new LoginResponse(token);
+
+    } catch (Exception e) {
+
+        e.printStackTrace();
+
+        throw e;
+    }
+}
+
 }
