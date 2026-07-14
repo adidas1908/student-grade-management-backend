@@ -25,7 +25,8 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@Valid @RequestBody RegisterRequest request) {
+    public ResponseEntity<User> register(
+            @Valid @RequestBody RegisterRequest request) {
 
         User user = userService.registerUser(request);
 
@@ -46,4 +47,29 @@ public class AuthController {
                 )
         );
     }
+
+    @PostMapping("/demo-login")
+public ResponseEntity<?> demoLogin() {
+
+    try {
+
+        LoginResponse response = authService.demoLogin();
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "Demo Login Successful",
+                        response
+                )
+        );
+
+    } catch (Exception e) {
+
+        e.printStackTrace();
+
+        return ResponseEntity.internalServerError().body(e.getMessage());
+
+    }
+
+}
 }
